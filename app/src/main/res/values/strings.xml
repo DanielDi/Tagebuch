@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Tagebuch</string>
+    <string name="home_activity_button_reportar">Reportar</string>
+    <string name="fragmento_pensamiento_text_view">Pensamiento</string>
+    <string name="fragmento_button_editar">Editar</string>
+    <string name="fragmento_button_eliminar">Eliminar</string>
 </resources>
