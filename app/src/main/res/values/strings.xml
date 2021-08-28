@@ -22,4 +22,6 @@
     <string name="redo_action_button_description">
         Boton que rehace hasta 10 acciones realizadas por el usuario
     </string>
+    <string name="reportar_pensamiento_titulo">Titulo</string>
+    <string name="reportar_pensamiento_descripcion">Descripcion</string>
 </resources>
