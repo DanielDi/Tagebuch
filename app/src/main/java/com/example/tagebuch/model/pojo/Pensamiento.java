@@ -27,17 +27,17 @@ public class Pensamiento {
         this.categoria = categoria;
     }
 
-    public Memento saveStateToMemento(Pensamiento pen,String accion){
-        return new Memento(pen,accion);
-    }
+//    public Memento saveStateToMemento(Pensamiento pen,String accion){
+//        return new Memento(pen,accion);
+//    }
 
-    public void getStateFromMemento(Memento memento){
-        setTitulo(memento.getPen().titulo);
-        setDescripcion(memento.getPen().descripcion);
-        setFecha(memento.getPen().fecha);
-        setCategoria(memento.getPen().categoria);
-        setId(memento.getPen().id);
-    }
+//    public void getStateFromMemento(Memento memento){
+//        setTitulo(memento.getPen().titulo);
+//        setDescripcion(memento.getPen().descripcion);
+//        setFecha(memento.getPen().fecha);
+//        setCategoria(memento.getPen().categoria);
+//        setId(memento.getPen().id);
+//    }
 
     public String getTitulo() {
         return titulo;

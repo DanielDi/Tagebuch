@@ -3,6 +3,8 @@ package com.example.tagebuch.controller;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
+import com.example.tagebuch.memento.CareTaker;
+import com.example.tagebuch.memento.Memento;
 import com.example.tagebuch.model.LocalStorage;
 import com.example.tagebuch.model.dao.CategoriaRoomDAO;
 import com.example.tagebuch.model.dao.PensamientoRoomDAO;
@@ -16,6 +18,7 @@ public class MainController {
 
     private PensamientoRoomDAO pensamientoRoomDAO;
     private CategoriaRoomDAO categoriaRoomDAO;
+    private CareTaker caretaker = new CareTaker();
 
     public List<Pensamiento> cargarPensamientos(MainActivity mainActivity){
         this.pensamientoRoomDAO = LocalStorage.getLocalStorage(mainActivity)
@@ -30,6 +33,9 @@ public class MainController {
         Pensamiento pensamiento = new Pensamiento(titulo,descripcion,categoria);
         this.pensamientoRoomDAO.insertAll(pensamiento);
         System.out.println("PENSAMIENTO CREADO "+titulo+" "+descripcion);
+
+        Memento memento = new Memento(pensamiento.getId(), titulo, descripcion, pensamiento.getFecha(), categoria, "reportar");
+        caretaker.add(mainActivity, memento);
     }
 
     public static Boolean verificarLongitud(String str){
