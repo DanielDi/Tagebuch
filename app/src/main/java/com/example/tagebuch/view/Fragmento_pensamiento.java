@@ -12,22 +12,30 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.tagebuch.R;
+import com.example.tagebuch.controller.MainController;
 
 public class Fragmento_pensamiento extends Fragment {
 
     private String tituloPensamiento;
+    private String descripcion;
+    private int idP;
     private View rootView;
     private TextView tituloPensamientoTextView;
     private Button but_editar;
     private Button but_eliminar;
+    private MainActivity contex;
 
     public Fragmento_pensamiento() {
 
     }
 
-    public static Fragmento_pensamiento newInstance(String tituloPensamiento, MainActivity mainActivity) {
+    public static Fragmento_pensamiento newInstance(String tituloPensamiento,String descriopcion,
+                                                    int idP,MainActivity mainActivity) {
         Fragmento_pensamiento fragment = new Fragmento_pensamiento();
         fragment.setTituloPensamiento(tituloPensamiento);
+        fragment.setDescripcion(descriopcion);
+        fragment.setIdP(idP);
+        fragment.setContex(mainActivity);
         return fragment;
     }
 
@@ -49,6 +57,7 @@ public class Fragmento_pensamiento extends Fragment {
             @Override
             public void onClick(View view) {
                 System.out.println(but_editar.getText());
+                new MainActivity().editarPensamiento(contex,idP,tituloPensamiento,descripcion);
             }
         });
 
@@ -70,4 +79,27 @@ public class Fragmento_pensamiento extends Fragment {
         this.tituloPensamiento = tituloPensamiento;
     }
 
+    public int getIdP() {
+        return idP;
+    }
+
+    public void setIdP(int idP) {
+        this.idP = idP;
+    }
+
+    public MainActivity getContex() {
+        return contex;
+    }
+
+    public void setContex(MainActivity contex) {
+        this.contex = contex;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }

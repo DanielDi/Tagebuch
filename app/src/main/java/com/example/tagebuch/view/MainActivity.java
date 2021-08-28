@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
                     .beginTransaction()
                     .add(
                             R.id.liner_layout_home_activity,
-                            Fragmento_pensamiento.newInstance("prueba"+i, this))
-                    .commit();
+                            Fragmento_pensamiento.newInstance("prueba"+i,"sapo",2,this))
+                                    .commit();
         }
 
         Reportar = findViewById(R.id.home_activity_button_reportar);
@@ -45,10 +45,11 @@ public class MainActivity extends AppCompatActivity {
                 seleccionarCategoria(contex);
             }
         });
+        MainActivity.crearCategorias(this);
     }
 
     public void seleccionarCategoria(MainActivity mainActivity){
-        String[] selectedItems = {"Amor","Trabajo","Dinero"};
+        String[] selectedItems = {"Amor","Trabajo","Chistes","Desahogo"};
         AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
         // Set the dialog title
         builder.setTitle("SELECCIONA UNA CATEGORIA:");
@@ -98,6 +99,48 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
 
+    public void editarPensamiento(MainActivity mainActivity,int idP,String tituloP,String descripcionP){
+        AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
+        // Set the dialog title
+
+        LayoutInflater inflater = LayoutInflater.from(mainActivity);
+        View layout= inflater.inflate(R.layout.reportar_pensamiento, null);
+        builder.setView(layout);
+
+        builder.setTitle("INGRESA LOS DATOS A EDITAR DEL PENSAMIENTO:");
+
+        EditText titulo = layout.findViewById(R.id.reportar_pensamiento_titulo_text_edit);
+        titulo.setText(tituloP);
+
+        EditText descripcion = layout.findViewById(R.id.reportar_pensamiento_descripcion_text_edit);
+        descripcion.setText(descripcionP);
+
+        builder.setPositiveButton("Guardar",new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+                String tituloS = titulo.getText().toString();
+                String descripcionS = descripcion.getText().toString();
+                if(MainController.verificarTextoNoNull(tituloS,descripcionS)){
+                    if(MainController.verificarLongitud(tituloS)){
+                        new MainController().editarPensamiento(mainActivity,tituloS,descripcionS,idP);
+                    }else{
+                        //PopUp.mostrarPopUp(mainActivity,"El titulo no puede superar " +
+                        // "los 100 caracteres","");
+                    }
+                }else{
+                    //PopUp.mostrarPopUp(mainActivity,"El título y la descripción no deben " +
+                    //"estar vacíos","");
+                }
+            }
+        });
+        builder.show();
+    }
+
+    public static void crearCategorias(MainActivity mainActivity){
+        if(new MainController().tablaVacia(mainActivity)){ //Consulta si tabla grupos esta vacia
+            new MainController().creacionCategorias(mainActivity);
+        }
     }
 }
