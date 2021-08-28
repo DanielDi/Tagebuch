@@ -4,7 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Universidad/Diseño y construccion de productos de software/Tagebuch/app/src/main/res/drawable/button_shape.xml" value="0.22552083333333334" />
+        <entry key="..\:/Universidad/Diseño y construccion de productos de software/Tagebuch/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22552083333333334" />
+        <entry key="..\:/Universidad/Diseño y construccion de productos de software/Tagebuch/app/src/main/res/drawable/label_checked_shape.xml" value="0.22552083333333334" />
+        <entry key="..\:/Universidad/Diseño y construccion de productos de software/Tagebuch/app/src/main/res/drawable/label_shape.xml" value="0.22552083333333334" />
         <entry key="..\:/Universidad/Diseño y construccion de productos de software/Tagebuch/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Universidad/Diseño y construccion de productos de software/Tagebuch/app/src/main/res/layout/fragmento_pensamiento.xml" value="0.209375" />
       </map>
     </option>
   </component>
