@@ -10,15 +10,23 @@ import com.example.tagebuch.model.pojo.Categoria;
 import com.example.tagebuch.model.pojo.Pensamiento;
 import com.example.tagebuch.view.MainActivity;
 
+import java.util.List;
+
 public class MainController {
 
     private PensamientoRoomDAO pensamientoRoomDAO;
     private CategoriaRoomDAO categoriaRoomDAO;
 
+    public List<Pensamiento> cargarPensamientos(MainActivity mainActivity){
+        this.pensamientoRoomDAO = LocalStorage.getLocalStorage(mainActivity)
+                .pensamientoRoomDAO();
+        return this.pensamientoRoomDAO.cargarPensamientos();
+    }
+
     public void reportarPensamiento(MainActivity mainActivity, String titulo,
                                     String descripcion, String categoria){
         this.pensamientoRoomDAO = LocalStorage.getLocalStorage(mainActivity)
-                .pensamientoRoomDAORoomDAO();
+                .pensamientoRoomDAO();
         Pensamiento pensamiento = new Pensamiento(titulo,descripcion,categoria);
         this.pensamientoRoomDAO.insertAll(pensamiento);
         System.out.println("PENSAMIENTO CREADO "+titulo+" "+descripcion);
@@ -41,7 +49,7 @@ public class MainController {
 
     public void creacionCategorias(MainActivity mainActivity){
         this.categoriaRoomDAO = LocalStorage.getLocalStorage(mainActivity)
-                .categoriaRoomDAORoomDAO();
+                .categoriaRoomDAO();
         Categoria cat1 = new Categoria("Amor","Sentimiento de amor","#FF0000");
         Categoria cat2 = new Categoria("Trabajo","ideas del trabajo","#FFFF00");
         Categoria cat3 = new Categoria("Chistes","Chistes nuevos","#008000");
@@ -52,14 +60,21 @@ public class MainController {
 
     public void editarPensamiento(MainActivity mainActivity,String titulo,String descripcion,int id){
         this.pensamientoRoomDAO = LocalStorage.getLocalStorage(mainActivity)
-                .pensamientoRoomDAORoomDAO();
+                .pensamientoRoomDAO();
         this.pensamientoRoomDAO.editarPensamiento(titulo,descripcion,id);
         System.out.println("PENSAMIENTO EDITADO"+titulo+" "+descripcion);
     }
 
+    public void eliminarPensamiento(MainActivity mainActivity, int id){
+        this.pensamientoRoomDAO = LocalStorage.getLocalStorage(mainActivity)
+                .pensamientoRoomDAO();
+        this.pensamientoRoomDAO.eliminarPensamiento(id);
+        System.out.println("PENSAMIENTO ELIMINADO ");
+    }
+
     public boolean tablaVacia(MainActivity mainActivity){
         this.categoriaRoomDAO = LocalStorage.getLocalStorage(mainActivity)
-                .categoriaRoomDAORoomDAO();
+                .categoriaRoomDAO();
         Integer num = this.categoriaRoomDAO.tablaVacia();
         if (num > 0){
             return false;

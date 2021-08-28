@@ -2,6 +2,7 @@ package com.example.tagebuch.view;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,10 +14,12 @@ import android.widget.TextView;
 
 import com.example.tagebuch.R;
 import com.example.tagebuch.controller.MainController;
+import com.example.tagebuch.model.pojo.Pensamiento;
 import com.example.tagebuch.shared.PopUp;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,15 +30,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MainActivity contex = this;
+        List<Pensamiento> pensamientos = new MainController().cargarPensamientos(this);
+        for (Pensamiento pensamiento: pensamientos) {
+            System.out.println(pensamiento.getTitulo());
+        }
 
-        for (int i = 0; i < 3; i++) {
-            System.out.println(i);
+        for (Pensamiento pensamiento: pensamientos) {
+            String titulo = pensamiento.getTitulo();
+            String descripcion = pensamiento.getDescripcion();
+            int id = pensamiento.getId();
+            String categoria = pensamiento.getCategoria();
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(
                             R.id.liner_layout_home_activity,
-                            Fragmento_pensamiento.newInstance("prueba"+i,"sapo",2,this))
-                                    .commit();
+                            Fragmento_pensamiento.newInstance(titulo, descripcion, id, this)
+
+                    ).commit();
         }
 
         Reportar = findViewById(R.id.home_activity_button_reportar);
@@ -136,6 +147,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+
+    public void eliminarPensamiento(MainActivity mainActivity, int id){
+        new MainController().eliminarPensamiento(mainActivity, id);
     }
 
     public static void crearCategorias(MainActivity mainActivity){

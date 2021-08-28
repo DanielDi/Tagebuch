@@ -14,8 +14,8 @@ import com.example.tagebuch.model.pojo.Pensamiento;
 @Database(entities = {Pensamiento.class, Categoria.class}, version = 1)
 public abstract class LocalStorage extends RoomDatabase {
 
-  public abstract PensamientoRoomDAO pensamientoRoomDAORoomDAO();
-  public abstract CategoriaRoomDAO categoriaRoomDAORoomDAO();
+  public abstract PensamientoRoomDAO pensamientoRoomDAO();
+  public abstract CategoriaRoomDAO categoriaRoomDAO();
   private  static LocalStorage localStorage;
 
   public static  LocalStorage getLocalStorage(final Context context) {

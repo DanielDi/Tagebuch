@@ -66,6 +66,7 @@ public class Fragmento_pensamiento extends Fragment {
             @Override
             public void onClick(View view) {
                 System.out.println(but_eliminar.getText());
+                new MainActivity().eliminarPensamiento(contex,idP);
             }
         });
         return rootView;
