@@ -20,12 +20,13 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="-16dp">
 
-        <EditText
+        <TextView
             android:id="@+id/app_title_name"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="98dp"
             android:layout_marginLeft="98dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="98dp"
             android:layout_marginRight="98dp"
             android:layout_marginBottom="8dp"
@@ -50,9 +51,7 @@
             android:layout_marginTop="100dp"
             android:layout_marginEnd="131dp"
             android:layout_marginRight="131dp"
-            android:layout_marginBottom="16dp"
             android:background="@drawable/label_shape"
-            app:layout_constraintBottom_toTopOf="@+id/liner_layout_home_activity"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -74,53 +73,35 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <LinearLayout
-            android:id="@+id/liner_layout_home_activity"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="160dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/label_shape"
-            android:baselineAligned="false"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/home_activity_button_reportar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.595">
-
-        </LinearLayout>
-
         <Button
             android:id="@+id/home_activity_button_reportar"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginTop="24dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/button_shape"
             android:text="@string/home_activity_button_reportar"
-            app:backgroundTint="#FEFBDE"
+            app:backgroundTint="#00C2847A"
+            app:backgroundTintMode="screen"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/liner_layout_home_activity"
+            app:layout_constraintTop_toBottomOf="@+id/pensamientos_scroll_view"
             tools:ignore="TextContrastCheck" />
 
         <ImageButton
             android:id="@+id/undo_action_button"
             android:layout_width="84dp"
             android:layout_height="48dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/button_shape"
             android:contentDescription="@string/undo_action_button_description"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/home_activity_button_reportar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/liner_layout_home_activity"
+            app:layout_constraintTop_toBottomOf="@+id/pensamientos_scroll_view"
             app:srcCompat="@drawable/ic_left_arrow"
             tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
@@ -128,14 +109,63 @@
             android:id="@+id/redo_action_button"
             android:layout_width="84dp"
             android:layout_height="48dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/button_shape"
             android:contentDescription="@string/redo_action_button_description"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/home_activity_button_reportar"
-            app:layout_constraintTop_toBottomOf="@+id/liner_layout_home_activity"
+            app:layout_constraintTop_toBottomOf="@+id/pensamientos_scroll_view"
             app:srcCompat="@drawable/ic_right_arrow"
             tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+        <ScrollView
+            android:id="@+id/pensamientos_scroll_view"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/label_display_pensamientos_shape"
+            android:fadeScrollbars="true"
+            android:isScrollContainer="true"
+            android:maxHeight="300dp"
+            android:overScrollMode="ifContentScrolls"
+            android:scrollbarAlwaysDrawHorizontalTrack="false"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarStyle="insideOverlay"
+            android:verticalScrollbarPosition="right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="300dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_pensamientos"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck">
+
+            <LinearLayout
+                android:id="@+id/liner_layout_home_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/label_display_pensamientos_shape"
+                android:baselineAligned="false"
+                android:fadeScrollbars="true"
+                android:isScrollContainer="true"
+                android:orientation="vertical"
+                android:overScrollMode="ifContentScrolls"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbarStyle="insideOverlay"
+                android:scrollbars="vertical"
+                android:verticalScrollbarPosition="right">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/fragmentContainerView"
+                    android:name="com.example.tagebuch.view.Fragmento_pensamiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

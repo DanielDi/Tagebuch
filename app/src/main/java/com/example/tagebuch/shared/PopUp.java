@@ -12,6 +12,7 @@ import com.example.tagebuch.R;
 
 public class PopUp {
     public static void mostrarPopUp(Context context, String mensaje){
+        System.out.println(mensaje);
         Dialog dialog = new Dialog(context);
         // Changing basic dialog
         dialog.setContentView(R.layout.pop_up);
