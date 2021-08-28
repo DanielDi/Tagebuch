@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         MainActivity contex = this;
         List<Pensamiento> pensamientos = new MainController().cargarPensamientos(this);
-        for (Pensamiento pensamiento: pensamientos) {
-            System.out.println(pensamiento.getTitulo());
-        }
 
         for (Pensamiento pensamiento: pensamientos) {
             String titulo = pensamiento.getTitulo();
@@ -99,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 if(MainController.verificarTextoNoNull(tituloS,descripcionS)){
                     if(MainController.verificarLongitud(tituloS)){
                         new MainController().reportarPensamiento(mainActivity,tituloS,descripcionS,categoria);
+                        mainActivity.onRestart();
                     }else{
                         //PopUp.mostrarPopUp(mainActivity,"El titulo no puede superar " +
                                // "los 100 caracteres","");
@@ -136,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
                 if(MainController.verificarTextoNoNull(tituloS,descripcionS)){
                     if(MainController.verificarLongitud(tituloS)){
                         new MainController().editarPensamiento(mainActivity,tituloS,descripcionS,idP);
+                        mainActivity.onRestart();
                     }else{
                         //PopUp.mostrarPopUp(mainActivity,"El titulo no puede superar " +
                         // "los 100 caracteres","");
@@ -151,11 +150,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void eliminarPensamiento(MainActivity mainActivity, int id){
         new MainController().eliminarPensamiento(mainActivity, id);
+        mainActivity.onRestart();
     }
 
     public static void crearCategorias(MainActivity mainActivity){
         if(new MainController().tablaVacia(mainActivity)){ //Consulta si tabla grupos esta vacia
             new MainController().creacionCategorias(mainActivity);
         }
+    }
+
+    @Override
+    public void onRestart(){
+        super.onRestart();
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
     }
 }
