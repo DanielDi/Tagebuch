@@ -4,4 +4,6 @@
     <string name="fragmento_pensamiento_text_view">Pensamiento</string>
     <string name="fragmento_button_editar">Editar</string>
     <string name="fragmento_button_eliminar">Eliminar</string>
+    <string name="reportar_pensamiento_titulo">Titulo</string>
+    <string name="reportar_pensamiento_descripcion">Descripcion</string>
 </resources>
