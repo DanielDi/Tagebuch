@@ -102,8 +102,7 @@ public class MainActivity extends AppCompatActivity {
                                 "los 100 caracteres");
                     }
                 }else{
-                    PopUp.mostrarPopUp(mainActivity,"El título y la descripción no deben " +
-                            "estar vacíos");
+                    PopUp.mostrarPopUp(mainActivity,"El título y la descripción no deben estar vacíos");
                 }
             }
         });

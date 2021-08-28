@@ -13,4 +13,5 @@
     <color name="old_rose">#C2847A</color>
     <color name="darkest_sienna">#280003</color>
     <color name="dark_sienna">#3C171A</color>
+    <color name="opaque_dark_sienna">#803C171A</color>
 </resources>
