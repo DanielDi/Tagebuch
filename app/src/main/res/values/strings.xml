@@ -1,9 +1,27 @@
 <resources>
     <string name="app_name">Tagebuch</string>
     <string name="home_activity_button_reportar">Reportar</string>
-    <string name="fragmento_pensamiento_text_view">Pensamiento</string>
+    <string name="fragmento_pensamiento_text_view">Pensamientos</string>
     <string name="fragmento_button_editar">Editar</string>
     <string name="fragmento_button_eliminar">Eliminar</string>
+    <string name="fragment_category_label">Categorias</string>
+    <string name="fragment_title_label">Título</string>
+    <string name="fragment_title_example">Máximo 100 caracteres</string>
+    <string name="fragment_description_label">Descripción</string>
+    <string name="fragment_description_example">Describe el pensamiento</string>
+    <string name="fragment_date_label">Fecha</string>
+    <string name="fragment_null_values_error">
+        El título y la descripción no deben de estar vacios
+    </string>
+    <string name="fragment_max_characters_error">
+        El título no puede superar los 100 caracteres
+    </string>
+    <string name="undo_action_button_description">
+        Boton que deshace hasta 10 acciones realizadas por el usuario
+    </string>
+    <string name="redo_action_button_description">
+        Boton que rehace hasta 10 acciones realizadas por el usuario
+    </string>
     <string name="reportar_pensamiento_titulo">Titulo</string>
     <string name="reportar_pensamiento_descripcion">Descripcion</string>
 </resources>
