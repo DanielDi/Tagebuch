@@ -99,11 +99,11 @@ public class MainActivity extends AppCompatActivity {
                         mainActivity.onRestart();
                     }else{
                         //PopUp.mostrarPopUp(mainActivity,"El titulo no puede superar " +
-                               // "los 100 caracteres","");
+                               // "los 100 caracteres");
                     }
                 }else{
                     //PopUp.mostrarPopUp(mainActivity,"El título y la descripción no deben " +
-                            //"estar vacíos","");
+                            //"estar vacíos");
                 }
             }
         });
@@ -137,11 +137,11 @@ public class MainActivity extends AppCompatActivity {
                         mainActivity.onRestart();
                     }else{
                         //PopUp.mostrarPopUp(mainActivity,"El titulo no puede superar " +
-                        // "los 100 caracteres","");
+                        // "los 100 caracteres");
                     }
                 }else{
                     //PopUp.mostrarPopUp(mainActivity,"El título y la descripción no deben " +
-                    //"estar vacíos","");
+                    //"estar vacíos");
                 }
             }
         });

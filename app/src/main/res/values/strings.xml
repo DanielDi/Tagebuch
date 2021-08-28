@@ -24,4 +24,6 @@
     </string>
     <string name="reportar_pensamiento_titulo">Titulo</string>
     <string name="reportar_pensamiento_descripcion">Descripcion</string>
+    <string name="dummy_text">Lorem ipsum dolor sit amet.</string>
+    <string name="svg_description">This is an SVG</string>
 </resources>
