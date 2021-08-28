@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.tagebuch.memento.Memento;
 import com.example.tagebuch.model.pojo.Categoria;
 
 import java.util.Date;
@@ -24,6 +25,18 @@ public class Pensamiento {
         this.descripcion = descripcion;
         this.fecha = Calendar.getInstance().getTime().toString();
         this.categoria = categoria;
+    }
+
+    public Memento saveStateToMemento(Pensamiento pen,String accion){
+        return new Memento(pen,accion);
+    }
+
+    public void getStateFromMemento(Memento memento){
+        setTitulo(memento.getPen().titulo);
+        setDescripcion(memento.getPen().descripcion);
+        setFecha(memento.getPen().fecha);
+        setCategoria(memento.getPen().categoria);
+        setId(memento.getPen().id);
     }
 
     public String getTitulo() {
