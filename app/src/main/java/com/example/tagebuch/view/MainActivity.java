@@ -98,12 +98,12 @@ public class MainActivity extends AppCompatActivity {
                         new MainController().reportarPensamiento(mainActivity,tituloS,descripcionS,categoria);
                         mainActivity.onRestart();
                     }else{
-                        //PopUp.mostrarPopUp(mainActivity,"El titulo no puede superar " +
-                               // "los 100 caracteres");
+                        PopUp.mostrarPopUp(mainActivity,"El titulo no puede superar " +
+                                "los 100 caracteres");
                     }
                 }else{
-                    //PopUp.mostrarPopUp(mainActivity,"El título y la descripción no deben " +
-                            //"estar vacíos");
+                    PopUp.mostrarPopUp(mainActivity,"El título y la descripción no deben " +
+                            "estar vacíos");
                 }
             }
         });
@@ -136,12 +136,12 @@ public class MainActivity extends AppCompatActivity {
                         new MainController().editarPensamiento(mainActivity,tituloS,descripcionS,idP);
                         mainActivity.onRestart();
                     }else{
-                        //PopUp.mostrarPopUp(mainActivity,"El titulo no puede superar " +
-                        // "los 100 caracteres");
+                        PopUp.mostrarPopUp(mainActivity,"El titulo no puede superar " +
+                        "los 100 caracteres");
                     }
                 }else{
-                    //PopUp.mostrarPopUp(mainActivity,"El título y la descripción no deben " +
-                    //"estar vacíos");
+                    PopUp.mostrarPopUp(mainActivity,"El título y la descripción no deben " +
+                    "estar vacíos");
                 }
             }
         });
