@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.tagebuch.memento.Memento;
 import com.example.tagebuch.model.pojo.Pensamiento;
 
 import java.util.List;
@@ -24,4 +25,7 @@ public interface PensamientoRoomDAO {
 
     @Query("DELETE FROM pensamientos WHERE id=:idQ")
     void eliminarPensamiento(int idQ);
+
+    @Query("SELECT * FROM pensamientos ORDER BY id DESC LIMIT 1")
+    Pensamiento obtenerUltimo();
 }

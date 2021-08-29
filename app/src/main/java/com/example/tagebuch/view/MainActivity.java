@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.tagebuch.R;
@@ -24,6 +25,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private Button Reportar;
+    private ImageButton retroceder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,16 @@ public class MainActivity extends AppCompatActivity {
                 seleccionarCategoria(contex);
             }
         });
+
+        retroceder = findViewById(R.id.undo_action_button);
+        retroceder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new MainController().retroceder(contex);
+                contex.onRestart();
+            }
+        });
+
         MainActivity.crearCategorias(this);
     }
 
@@ -96,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 if(MainController.verificarTextoNoNull(tituloS,descripcionS)){
                     if(MainController.verificarLongitud(tituloS)){
                         new MainController().reportarPensamiento(mainActivity,tituloS,descripcionS,categoria);
-                        mainActivity.onRestart();
+//                        mainActivity.onRestart();
                     }else{
                         PopUp.mostrarPopUp(mainActivity,"El titulo no puede superar " +
                                 "los 100 caracteres");
@@ -133,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 if(MainController.verificarTextoNoNull(tituloS,descripcionS)){
                     if(MainController.verificarLongitud(tituloS)){
                         new MainController().editarPensamiento(mainActivity,tituloS,descripcionS,idP);
-                        mainActivity.onRestart();
+//                        mainActivity.onRestart();
                     }else{
                         PopUp.mostrarPopUp(mainActivity,"El titulo no puede superar " +
                         "los 100 caracteres");
@@ -149,11 +161,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void eliminarPensamiento(MainActivity mainActivity, int id){
         new MainController().eliminarPensamiento(mainActivity, id);
-        mainActivity.onRestart();
+//        mainActivity.onRestart();
     }
 
     public static void crearCategorias(MainActivity mainActivity){
-        if(new MainController().tablaVacia(mainActivity)){ //Consulta si tabla grupos esta vacia
+        if(new MainController().tablaVacia(mainActivity)){
             new MainController().creacionCategorias(mainActivity);
         }
     }

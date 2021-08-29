@@ -32,10 +32,14 @@ public class MainController {
                 .pensamientoRoomDAO();
         Pensamiento pensamiento = new Pensamiento(titulo,descripcion,categoria);
         this.pensamientoRoomDAO.insertAll(pensamiento);
+
+        pensamiento = this.pensamientoRoomDAO.obtenerUltimo();
         System.out.println("PENSAMIENTO CREADO "+titulo+" "+descripcion);
 
-        Memento memento = new Memento(pensamiento.getId(), titulo, descripcion, pensamiento.getFecha(), categoria, "reportar");
+        Memento memento = new Memento(pensamiento.getId(), titulo, descripcion, pensamiento.getFecha(), categoria, "creado");
+        System.out.println("ID PENSAMIENTO GUARDADO EN MEMENTO = "+pensamiento.getId());
         caretaker.add(mainActivity, memento);
+        mainActivity.onRestart();
     }
 
     public static Boolean verificarLongitud(String str){
@@ -69,13 +73,15 @@ public class MainController {
                 .pensamientoRoomDAO();
         this.pensamientoRoomDAO.editarPensamiento(titulo,descripcion,id);
         System.out.println("PENSAMIENTO EDITADO"+titulo+" "+descripcion);
+        mainActivity.onRestart();
     }
 
     public void eliminarPensamiento(MainActivity mainActivity, int id){
         this.pensamientoRoomDAO = LocalStorage.getLocalStorage(mainActivity)
                 .pensamientoRoomDAO();
         this.pensamientoRoomDAO.eliminarPensamiento(id);
-        System.out.println("PENSAMIENTO ELIMINADO ");
+        System.out.println("PENSAMIENTO ELIMINADO ID "+ id);
+        mainActivity.onRestart();
     }
 
     public boolean tablaVacia(MainActivity mainActivity){
@@ -86,6 +92,20 @@ public class MainController {
             return false;
         }
         return true;
+    }
+
+    public void retroceder(MainActivity mainActivity){
+        Memento memento = caretaker.obtenerUltimoMemento(mainActivity);
+        switch (memento.getAccion()){
+            case "creado":
+                eliminarPensamiento(mainActivity, memento.getId());
+            case "editado":
+                editarPensamiento(mainActivity, memento.getTitulo(), memento.getDescripcion(), memento.getId());
+            case "eliminado":
+                reportarPensamiento(mainActivity, memento.getTitulo(), memento.getDescripcion(), memento.getCategoria());
+            default:
+
+        }
     }
 
 }
