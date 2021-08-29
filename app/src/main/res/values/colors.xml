@@ -14,4 +14,8 @@
     <color name="darkest_sienna">#280003</color>
     <color name="dark_sienna">#3C171A</color>
     <color name="opaque_dark_sienna">#803C171A</color>
+    <color name="Amor">#FF0000</color>
+    <color name="Trabajo">#FFFF00</color>
+    <color name="Chistes">#008000</color>
+    <color name="Desahogo">#67A1CF</color>
 </resources>
