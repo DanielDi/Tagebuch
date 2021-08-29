@@ -17,8 +17,10 @@
         <entry key="..\:/Users/nclsc/Developer/Tagebuch/app/src/main/res/drawable/ic_plus.xml" value="0.2203125" />
         <entry key="..\:/Users/nclsc/Developer/Tagebuch/app/src/main/res/drawable/label_checked_shape.xml" value="0.20462962962962963" />
         <entry key="..\:/Users/nclsc/Developer/Tagebuch/app/src/main/res/drawable/label_shape.xml" value="0.20462962962962963" />
+        <entry key="..\:/Users/nclsc/Developer/Tagebuch/app/src/main/res/drawable/label_shape_no_rounded.xml" value="0.2203125" />
         <entry key="..\:/Users/nclsc/Developer/Tagebuch/app/src/main/res/drawable/pop_up_background.xml" value="0.2203125" />
-        <entry key="..\:/Users/nclsc/Developer/Tagebuch/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/nclsc/Developer/Tagebuch/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/nclsc/Developer/Tagebuch/app/src/main/res/layout/categories_selection.xml" value="0.33" />
         <entry key="..\:/Users/nclsc/Developer/Tagebuch/app/src/main/res/layout/fragmento_pensamiento.xml" value="0.25" />
         <entry key="..\:/Users/nclsc/Developer/Tagebuch/app/src/main/res/layout/pop_up.xml" value="0.33" />
       </map>

@@ -26,4 +26,10 @@
     <string name="reportar_pensamiento_descripcion">Descripcion</string>
     <string name="dummy_text">Lorem ipsum dolor sit amet.</string>
     <string name="svg_description">This is an SVG</string>
+    <string name="categories_text">Categorías</string>
+    <string name="categorie_amor">Amor</string>
+    <string name="categorie_trabajo">Trabajo</string>
+    <string name="categorie_chistes">Chistes</string>
+    <string name="categorie_desahogo">Desahogo</string>
+    <string name="send_button">Send</string>
 </resources>
