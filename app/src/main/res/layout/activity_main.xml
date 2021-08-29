@@ -81,7 +81,7 @@
             android:layout_marginBottom="40dp"
             android:background="@drawable/button_shape"
             android:text="@string/home_activity_button_reportar"
-            app:backgroundTint="#00C2847A"
+            app:backgroundTint="@color/old_rose"
             app:backgroundTintMode="screen"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
