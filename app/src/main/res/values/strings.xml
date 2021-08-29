@@ -9,6 +9,7 @@
     <string name="fragment_title_example">Máximo 100 caracteres</string>
     <string name="fragment_description_label">Descripción</string>
     <string name="fragment_description_example">Describe el pensamiento</string>
+    <string name="fragment_cancel_button">Cancelar</string>
     <string name="fragment_date_label">Fecha</string>
     <string name="fragment_null_values_error">
         El título y la descripción no deben de estar vacios
