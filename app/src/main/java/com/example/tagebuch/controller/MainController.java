@@ -71,6 +71,13 @@ public class MainController {
     public void editarPensamiento(MainActivity mainActivity,String titulo,String descripcion,int id){
         this.pensamientoRoomDAO = LocalStorage.getLocalStorage(mainActivity)
                 .pensamientoRoomDAO();
+        Pensamiento pensamiento = this.pensamientoRoomDAO.obtenerPensamiento(id);
+        Memento memento = new Memento(pensamiento.getId(), pensamiento.getTitulo(),
+          pensamiento.getDescripcion(), pensamiento.getFecha(), pensamiento.getDescripcion(),
+          "editado");
+
+        caretaker.add(mainActivity, memento);
+
         this.pensamientoRoomDAO.editarPensamiento(titulo,descripcion,id);
         System.out.println("PENSAMIENTO EDITADO"+titulo+" "+descripcion);
         mainActivity.onRestart();
@@ -79,7 +86,14 @@ public class MainController {
     public void eliminarPensamiento(MainActivity mainActivity, int id){
         this.pensamientoRoomDAO = LocalStorage.getLocalStorage(mainActivity)
                 .pensamientoRoomDAO();
+        Pensamiento pensamiento = this.pensamientoRoomDAO.obtenerPensamiento(id);
+        Memento memento = new Memento(pensamiento.getId(), pensamiento.getTitulo(),
+          pensamiento.getDescripcion(), pensamiento.getFecha(), pensamiento.getDescripcion(),
+          "eliminado");
+
         this.pensamientoRoomDAO.eliminarPensamiento(id);
+        caretaker.add(mainActivity, memento);
+
         System.out.println("PENSAMIENTO ELIMINADO ID "+ id);
         mainActivity.onRestart();
     }
@@ -96,6 +110,8 @@ public class MainController {
 
     public void retroceder(MainActivity mainActivity){
         Memento memento = caretaker.obtenerUltimoMemento(mainActivity);
+        System.out.println("MEMENTO CASES");
+        System.out.println(memento.getPosicion() + " || " + memento.getId() + " || " + memento.getAccion());
         switch (memento.getAccion()){
             case "creado":
                 eliminarPensamiento(mainActivity, memento.getId());

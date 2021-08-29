@@ -16,6 +16,9 @@ public interface PensamientoRoomDAO {
     @Query("SELECT * FROM pensamientos")
     List<Pensamiento> cargarPensamientos();
 
+    @Query("SELECT * FROM pensamientos WHERE id=:idQ")
+    Pensamiento obtenerPensamiento(int idQ);
+
     @Insert
     void insertAll(Pensamiento...pensamientos);
 

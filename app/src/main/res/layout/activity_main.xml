@@ -157,14 +157,7 @@
                 android:scrollbarAlwaysDrawVerticalTrack="true"
                 android:scrollbarStyle="insideOverlay"
                 android:scrollbars="vertical"
-                android:verticalScrollbarPosition="right">
-
-                <androidx.fragment.app.FragmentContainerView
-                    android:id="@+id/fragmentContainerView"
-                    android:name="com.example.tagebuch.view.Fragmento_pensamiento"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                android:verticalScrollbarPosition="right"/>
         </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
